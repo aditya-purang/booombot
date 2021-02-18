@@ -4,7 +4,7 @@ from youtubesearchpython import VideosSearch
 
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
+#app.config["DEBUG"] = True
 
 
 @app.route('/', methods=['GET'])
@@ -18,7 +18,6 @@ def get_links(song_str):
         songlist[i]=songlist[i].strip()
 
     url_list=[]
-    videosSearch = VideosSearch(songlist[0], limit = 1)
 
     url_list=[VideosSearch(song, limit = 1).result().get("result")[0].get("link") for song in songlist]
 
