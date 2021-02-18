@@ -23,8 +23,8 @@ def get_links(song_str):
 
     return jsonify(url_list)
 
-
-app.run()
+if __name__ == '__main__':
+    app.run()
 
 
 
