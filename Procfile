@@ -1,1 +1,1 @@
-web: gunicorn boombot:app
+web: gunicorn app:app
