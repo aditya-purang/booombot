@@ -1,7 +1,6 @@
 
 from flask import Flask,jsonify
 from youtubesearchpython import VideosSearch
-import json
 
 
 app = Flask(__name__)
