@@ -19,7 +19,8 @@ def get_links(song_str):
 
     url_list=[]
 
-    url_list=[VideosSearch(song, limit = 1).result().get("result")[0].get("link") for song in songlist]
+    
+    url_list=[CustomSearch(song, VideoSortOrder.viewCount, limit = 1).result().get("result")[0].get("link") for song in songlist]
 
     return jsonify(url_list)
 
