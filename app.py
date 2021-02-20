@@ -1,6 +1,7 @@
 
 from flask import Flask, jsonify
 from youtubesearchpython import VideosSearch, CustomSearch, VideoSortOrder
+import re
 
 
 app = Flask(__name__)
@@ -38,7 +39,7 @@ def home():
 
 @app.route('/getlinks/<string:song_str>', methods=['GET'])
 def get_links(song_str):
-    songlist = song_str.split(',')
+    songlist = samp= re.sub("\s+"," ",re.sub("\n"," ",song_str))
     for i in range(len(songlist)):
         songlist[i] = songlist[i].strip()
 
