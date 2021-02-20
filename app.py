@@ -22,7 +22,7 @@ def return_dict(song_name):
         song_name, VideoSortOrder.relevance, limit=1).result()
     src = song_dict.get("result")[0].get("link")
     image_src = song_dict.get("result")[0].get("thumbnails")[0].get("url")
-    if(len(song_dict.get("result")[0].get("thumbnails"))>1):
+    if(len(song_dict.get("result")[0].get("thumbnails")) > 1):
         image_src = song_dict.get("result")[0].get("thumbnails")[1].get("url")
     channel = song_dict.get("result")[0].get("channel").get("name")
     title = song_dict.get("result")[0].get("title")
@@ -39,9 +39,9 @@ def home():
 
 @app.route('/getlinks/<string:song_str>', methods=['GET'])
 def get_links(song_str):
-    songlist = re.sub("\s+"," ",re.sub("\n"," ",song_str)).split(',')
+    songlist = re.sub("\s+", " ", re.sub("\n", " ", song_str)).split(',')
     for i in range(len(songlist)):
-        songlist[i] = songlist[i].strip()
+        songlist[i] = songlist[i].strip()+" song"
 
     url_list = []
 
