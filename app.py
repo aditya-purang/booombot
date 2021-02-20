@@ -39,7 +39,7 @@ def home():
 
 @app.route('/getlinks/<string:song_str>', methods=['GET'])
 def get_links(song_str):
-    songlist = samp= re.sub("\s+"," ",re.sub("\n"," ",song_str))
+    songlist = re.sub("\s+"," ",re.sub("\n"," ",song_str)).split(',')
     for i in range(len(songlist)):
         songlist[i] = songlist[i].strip()
 
