@@ -19,7 +19,7 @@ title: "Ashes on Fire",
 def return_dict(song_name):
 
     song_dict = CustomSearch(
-        song_name, VideoSortOrder.viewCount, limit=1).result()
+        song_name, VideoSortOrder.relevance, limit=1).result()
     src = song_dict.get("result")[0].get("link")
     image_src = song_dict.get("result")[0].get("thumbnails")[0].get("url")
     if(len(song_dict.get("result")[0].get("thumbnails"))>1):
