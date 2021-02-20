@@ -24,10 +24,6 @@ def return_dict(song_name):
     ret_dict={"src":src,"image_src":image_src,"channel":channel,"title":title}
     return ret_dict
 
-    
-
-
-
 @app.route('/', methods=['GET'])
 def home():
     return "api"
