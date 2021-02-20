@@ -7,6 +7,27 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 
 
+'''
+title: "Ashes on Fire",
+      artist: "Attack on Titan",
+      img_src: "./images/song-3.jpg",
+      src:
+'''
+def return_dict(song_name):
+
+    song_dict=CustomSearch(song_name, VideoSortOrder.viewCount, limit = 1).result()
+    src=song_dict.get("result")[0].get("link")
+    image_src=song_dict.get("result")[0].get("thumbnails")[0].get("url")
+    channel=song_dict.get("result")[0].get("channel").get("name")
+    title=song_dict.get("result")[0].get("title")
+
+    ret_dict={"src":src,"image_src":image_src,"channel":channel,"title":title}
+    return ret_dict
+
+    
+
+
+
 @app.route('/', methods=['GET'])
 def home():
     return "api"
@@ -20,7 +41,7 @@ def get_links(song_str):
     url_list=[]
 
     
-    url_list=[CustomSearch(song, VideoSortOrder.viewCount, limit = 1).result().get("result")[0].get("link") for song in songlist]
+    url_list=[return_dict(song) for song in songlist]
 
     return jsonify(url_list)
 
